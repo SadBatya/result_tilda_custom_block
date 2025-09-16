@@ -46,6 +46,8 @@
   top: 20%;
   right: 0;
   z-index: -1;
+  transform: rotate(-15deg);
+  max-width: 616px;
 }
 
 .accordion-item {
@@ -154,6 +156,12 @@
 
   .accordion {
     gap: 12px;
+  }
+
+  .icon-smile {
+    top: 40%;
+    right: -10%;
+    max-width: 216px;
   }
 
   .block-title {
