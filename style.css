@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1440px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  padding: 80px 0;
+}
+
+.block-title {
+  font-size: 40px;
+  color: #0c0e12;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: "Golos-text", sans-serif;
+}
+
+.accordion-item {
+  background-color: #f6fbfe;
+  border: 1px solid #0a85d180;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 133%;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  color: #94979c;
+  font-size: 32px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.accordion-item.active .icon {
+  color: white;
+  background-color: #0a85d1;
+}
+
+.icon::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 20px;
+  background-color: #94979c;
+  border-radius: 24px;
+  transition: 0.3s all;
+}
+
+.accordion-item.active .icon::after {
+  transform: rotate(90deg);
+}
+
+.icon::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background-color: #94979c;
+  border-radius: 24px;
+}
+
+.accordion-item.active .icon::before,
+.accordion-item.active .icon::after {
+  background-color: white;
+}
+
+.accordion-item.active .icon::before {
+  content: "";
+}
+
+.accordion-content {
+  transition: 0.5s all ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: #717680;
+}
+
+.accordion-description {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.accordion-item.active > .accordion-content {
+  max-height: 1200px;
+  overflow: visible;
+  opacity: 1;
+}
+
+.list-item {
+  list-style-position: inside;
+  padding: 8px 0;
+}
+
+@media (max-width: 786px) {
+  .container {
+    width: calc(100% - 20px);
+    padding: 40px 0;
+  }
+
+  .accordion {
+    gap: 12px;
+  }
+
+  .block-title {
+    font-size: 36px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .accordion-item {
+    padding: 16px;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon::after {
+    width: 2px;
+    height: 12px;
+  }
+
+  .icon::before {
+    width: 12px;
+    height: 2px;
+  }
+}
