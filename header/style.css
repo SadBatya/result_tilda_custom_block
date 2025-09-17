@@ -36,7 +36,7 @@ a {
 
 .logo {
   position: relative;
-  z-index: 1;
+  z-index: 101;
 }
 
 .navigation-list {
@@ -119,7 +119,7 @@ a {
   border: none;
   cursor: pointer;
   position: relative;
-  z-index: 1;
+  z-index: 101;
 }
 
 .burger-button span,
