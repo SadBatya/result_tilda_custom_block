@@ -123,11 +123,6 @@
   opacity: 1;
 }
 
-.question-list-item {
-  list-style-position: inside;
-  padding: 8px 0;
-}
-
 @media (max-width: 786px) {
   .question-container {
     width: calc(100% - 20px);
