@@ -4,21 +4,21 @@
   margin: 0;
 }
 
-.container {
+.program-container {
   position: relative;
   max-width: 1920px;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
+  overflow: hidden;
   padding: 80px 0;
-  overflow-x: hidden;
 }
 
-.container-inner {
+.program-container-inner {
   max-width: 1440px;
   margin: 0 auto;
 }
 
-.bg-lines {
+.program-bg-lines {
   position: absolute;
   top: 0;
   width: 100%;
@@ -26,14 +26,14 @@
   z-index: -1;
 }
 
-.block-title {
+.program-block-title {
   font-size: 40px;
   color: #0c0e12;
   font-weight: 700;
   margin-bottom: 40px;
 }
 
-.accordion {
+.program-accordion {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@
   font-family: "Golos-text", sans-serif;
 }
 
-.icon-smile {
+.program-icon-smile {
   position: absolute;
   top: 20%;
   right: 0;
@@ -50,14 +50,14 @@
   max-width: 616px;
 }
 
-.accordion-item {
+.program-accordion-item {
   background-color: #f6fbfe;
   border: 1px solid #0a85d180;
   border-radius: 16px;
   padding: 24px;
 }
 
-.accordion-header {
+.program-accordion-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,13 +68,13 @@
   cursor: pointer;
 }
 
-.title {
+.program-title {
   font-size: 28px;
   font-weight: 500;
   line-height: 133%;
 }
 
-.icon {
+.program-icon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -88,12 +88,12 @@
   position: relative;
 }
 
-.accordion-item.active .icon {
+.program-accordion-item.active .program-icon {
   color: white;
   background-color: #0a85d1;
 }
 
-.icon::after {
+.program-icon::after {
   position: absolute;
   content: "";
   width: 2px;
@@ -103,11 +103,11 @@
   transition: 0.3s all;
 }
 
-.accordion-item.active .icon::after {
+.program-accordion-item.active .program-icon::after {
   transform: rotate(90deg);
 }
 
-.icon::before {
+.program-icon::before {
   content: "";
   width: 20px;
   height: 2px;
@@ -115,16 +115,16 @@
   border-radius: 24px;
 }
 
-.accordion-item.active .icon::before,
-.accordion-item.active .icon::after {
+.program-accordion-item.active .program-icon::before,
+.program-accordion-item.active .program-icon::after {
   background-color: white;
 }
 
-.accordion-item.active .icon::before {
+.program-accordion-item.active .program-icon::before {
   content: "";
 }
 
-.accordion-content {
+.program-accordion-content {
   transition: 0.5s all ease-in-out;
   max-height: 0;
   overflow: hidden;
@@ -132,61 +132,63 @@
   color: #717680;
 }
 
-.accordion-description {
+.program-accordion-description {
   margin-bottom: 16px;
   margin-top: 16px;
+  color: #717680;
 }
 
-.accordion-item.active > .accordion-content {
+.program-accordion-item.active > .program-accordion-content {
   max-height: 1200px;
   overflow: visible;
   opacity: 1;
 }
 
-.list-item {
+.program-list-item {
   list-style-position: inside;
   padding: 8px 0;
+  color: #717680;
 }
 
 @media (max-width: 786px) {
-  .container {
+  .program-container {
     width: calc(100% - 20px);
     padding: 40px 0;
   }
 
-  .accordion {
+  .program-accordion {
     gap: 12px;
   }
 
-  .icon-smile {
+  .program-icon-smile {
     top: 40%;
     right: -10%;
     max-width: 216px;
   }
 
-  .block-title {
+  .program-block-title {
     font-size: 36px;
   }
 
-  .title {
+  .program-title {
     font-size: 22px;
   }
 
-  .accordion-item {
+  .program-accordion-item {
     padding: 16px;
   }
 
-  .icon {
+  .program-icon {
     width: 32px;
     height: 32px;
   }
 
-  .icon::after {
+  .program-icon::after {
     width: 2px;
     height: 12px;
   }
 
-  .icon::before {
+  .program-icon::before {
     width: 12px;
     height: 2px;
   }

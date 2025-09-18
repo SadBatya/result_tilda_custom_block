@@ -5,21 +5,17 @@
     margin: 0;
   }
 
-  .container {
+  .question-container {
     position: relative;
     max-width: 1920px;
+    height: 100%;
     margin: 0 auto;
     font-family: "Inter", sans-serif;
+    overflow: hidden;
     padding: 80px 0;
-    overflow-x: hidden;
   }
 
-  .container-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .bg-lines {
+  .question-bg-lines {
     position: absolute;
     top: 0;
     width: 100%;
@@ -27,38 +23,34 @@
     z-index: -1;
   }
 
-  .block-title {
+  .question-container-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .question-block-title {
     font-size: 40px;
     color: #0c0e12;
     font-weight: 700;
     margin-bottom: 40px;
+    text-align: center;
   }
 
-  .accordion {
+  .question-accordion {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
     font-family: "Golos-text", sans-serif;
   }
 
-  .icon-smile {
-    position: absolute;
-    top: 20%;
-    right: 0;
-    z-index: -1;
-    transform: rotate(-15deg);
-    max-width: 616px;
-  }
-
-  .accordion-item {
-    background-color: #f6fbfe;
-    border: 1px solid #0a85d180;
-    border-radius: 16px;
+  .question-accordion-item {
     padding: 24px;
+    border-bottom: 1px solid #e5e5e5;
   }
 
-  .accordion-header {
+  .question-accordion-item:first-child {
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .question-accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,18 +61,16 @@
     cursor: pointer;
   }
 
-  .title {
+  .question-title {
     font-size: 28px;
     font-weight: 500;
     line-height: 133%;
   }
 
-  .icon {
+  .question-icon {
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background-color: #d9d9d9;
-    color: #94979c;
     font-size: 32px;
     font-weight: 100;
     display: flex;
@@ -89,43 +79,33 @@
     position: relative;
   }
 
-  .accordion-item.active .icon {
-    color: white;
-    background-color: #0a85d1;
-  }
-
-  .icon::after {
+  .question-icon::after {
     position: absolute;
     content: "";
     width: 2px;
     height: 20px;
-    background-color: #94979c;
+    background-color: black;
     border-radius: 24px;
     transition: 0.3s all;
   }
 
-  .accordion-item.active .icon::after {
+  .question-accordion-item.active .question-icon::after {
     transform: rotate(90deg);
   }
 
-  .icon::before {
+  .question-icon::before {
     content: "";
     width: 20px;
     height: 2px;
-    background-color: #94979c;
+    background-color: black;
     border-radius: 24px;
   }
 
-  .accordion-item.active .icon::before,
-  .accordion-item.active .icon::after {
-    background-color: white;
-  }
-
-  .accordion-item.active .icon::before {
+  .question-accordion-item.active .question-icon::before {
     content: "";
   }
 
-  .accordion-content {
+  .question-accordion-content {
     transition: 0.5s all ease-in-out;
     max-height: 0;
     overflow: hidden;
@@ -133,262 +113,89 @@
     color: #717680;
   }
 
-  .accordion-description {
+  .question-accordion-description {
     margin-bottom: 16px;
     margin-top: 16px;
   }
 
-  .accordion-item.active > .accordion-content {
+  .question-accordion-item.active > .question-accordion-content {
     max-height: 1200px;
     overflow: visible;
     opacity: 1;
   }
 
-  .list-item {
+  .question-list-item {
     list-style-position: inside;
     padding: 8px 0;
   }
 
   @media (max-width: 786px) {
-    .container {
+    .question-container {
       width: calc(100% - 20px);
       padding: 40px 0;
     }
 
-    .accordion {
+    .question-accordion {
       gap: 12px;
     }
 
-    .icon-smile {
-      top: 40%;
-      right: -10%;
-      max-width: 216px;
-    }
-
-    .block-title {
+    .question-block-title {
       font-size: 36px;
     }
 
-    .title {
+    .question-title {
       font-size: 22px;
     }
 
-    .accordion-item {
+    .question-accordion-item {
       padding: 16px;
     }
 
-    .icon {
+    .question-icon {
       width: 32px;
       height: 32px;
     }
 
-    .icon::after {
+    .question-icon::after {
       width: 2px;
       height: 12px;
     }
 
-    .icon::before {
+    .question-icon::before {
       width: 12px;
       height: 2px;
     }
   }
 </style>
 
-<div class="container">
+<div class="question-container">
   <img
-    class="bg-lines"
+    class="question-bg-lines"
     src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
     alt=""
   />
-  <div class="container-inner">
-    <h4 class="block-title">Программа обучения</h4>
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Введение</span>
-          <span class="icon"></span>
+  <div class="question-container-inner">
+    <h4 class="question-block-title">Вопросы & Ответы</h4>
+    <div class="question-accordion">
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title">Введение</span>
+          <span class="question-icon"></span>
         </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
             Узнаете, для чего нужен TypeScript, какие проблемы он решает и как
             его добавить в проект.
           </p>
-          <ol class="list">
-            <li class="list-item">Добро пожаловать в модуль TypeScript</li>
-            <li class="list-item">Демонстрация функционала TypeScript</li>
-            <li class="list-item">Настройка VS Code</li>
-            <li class="list-item">Установка TypeScript</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Базовые типы</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Научитесь типизировать данные с примитивными типами, а также
-            объекты, массивы, кортежи, функции. Познакомитесь с типом Enum,
-            поймете разницу между void и undefined.
-          </p>
-          <ol class="list">
-            <li class="list-item">Работа с числами</li>
-            <li class="list-item">String, boolean, function</li>
-            <li class="list-item">Объекты</li>
-            <li class="list-item">Массивы</li>
-            <li class="list-item">Кортежи (Tuples)</li>
-            <li class="list-item">Enum</li>
-            <li class="list-item">Symbol & BigInt</li>
-            <li class="list-item">void vs undefined</li>
-            <li class="list-item">Типизация функций</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Работа с типами</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Научитесь использовать объединение, литеральные типы, интерфейсы, а
-            также «защитников типа». Познакомитесь с типом unknown и поймете его
-            отличие от any, узнаете о типе never.
-          </p>
-          <ol class="list">
-            <li class="list-item">Объединенные типы (Union Types)</li>
-            <li class="list-item">Literal Types</li>
-            <li class="list-item">Interfaces</li>
-            <li class="list-item">unknown</li>
-            <li class="list-item">never</li>
-            <li class="list-item">Type Guard</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Компилятор</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Научитесь управлять поведением компилятора TypeScript с помощью
-            конфигурационного файла tsconfig.json (например, выбор файлов для
-            компиляции, версия ECMAScript, в которую будет скомпилирован
-            TypeScript-код, система модулей, строгий режим и многое другое).
-          </p>
-          <ol class="list">
-            <li class="list-item">Введение</li>
-            <li class="list-item">
-              Базовые настройки (files, include, exclude, extends)
+          <ol class="question-list">
+            <li class="question-list-item">
+              Добро пожаловать в модуль TypeScript
             </li>
-            <li class="list-item">Language and Environment</li>
-            <li class="list-item">modules</li>
-            <li class="list-item">jscheck</li>
-            <li class="list-item">emit</li>
-            <li class="list-item">strict</li>
-            ы
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Классы</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Научитесь типизировать классы (в том числе модификаторы доступа,
-            статические методы и свойства, геттеры / сеттеры, реализация классов
-            от интерфейсов, абстрактные классы).
-          </p>
-          <ol class="list">
-            <li class="list-item">Синтаксис классов</li>
-            <li class="list-item">Методы</li>
-            <li class="list-item">Getters & Setters</li>
-            <li class="list-item">Наследование</li>
-            <li class="list-item">Модификаторы свойств</li>
-            <li class="list-item">Static & Readonly</li>
-            <li class="list-item">Упрощенный конструктор</li>
-            <li class="list-item">Implements</li>
-            <li class="list-item">Абстрактные классы</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Generic</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Познакомитесь с обобщенными типами в TypeScript, позволяющими писать
-            более гибкий и переиспользуемый код. Научитесь применять их с
-            функциями и классами.
-          </p>
-          <ol class="list">
-            <li class="list-item">Зачем нужны generic</li>
-            <li class="list-item">Функции с generic</li>
-            <li class="list-item">Более строгие generic</li>
-            <li class="list-item">Применение keyof</li>
-            <li class="list-item">Работа с классами</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Утилиты</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Узнаете о множестве полезных утилитарных типов, позволяющих упрощать
-            определения типов, создавать новые типы на основе существующих,
-            выполнять операции над типами.
-          </p>
-          <ol class="list">
-            <li class="list-item">typeof & keyof</li>
-            <li class="list-item">Partial, Required, Readonly</li>
-            <li class="list-item">Pick & Omit</li>
-            <li class="list-item">Extract & Exclude</li>
-            <li class="list-item">ReturnType & Parametrs</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Декораторы</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Поймете основные принципы работы декораторов в TypeScript и
-            научитесь их использовать для классов, их методов и свойств.
-          </p>
-          <ol class="list">
-            <li class="list-item">Введение</li>
-            <li class="list-item">Классы</li>
-            <li class="list-item">Методы</li>
-            <li class="list-item">Свойства</li>
-            <li class="list-item">Параметры</li>
-          </ol>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="title">Еще про TypeScript</span>
-          <span class="icon"></span>
-        </button>
-        <div class="accordion-content">
-          <p class="accordion-description">
-            Научитесь использовать пространства имен, использовать TypeScript со
-            сторонними библиотеками, добавлять TypeScript в Node.js-проект.
-          </p>
-          <ol class="list">
-            <li class="list-item">Что такое namespace</li>
-            <li class="list-item">Сторонние библиотеки</li>
-            <li class="list-item">Настройка NodeJS</li>
+            <li class="question-list-item">
+              Демонстрация функционала TypeScript
+            </li>
+            <li class="question-list-item">Настройка VS Code</li>
+            <li class="question-list-item">Установка TypeScript</li>
           </ol>
         </div>
       </div>
@@ -397,9 +204,11 @@
 </div>
 
 <script>
-  const accordionItems = document.querySelectorAll(".accordion-item");
+  const questionAccordionItems = document.querySelectorAll(
+    ".question-accordion-item"
+  );
 
-  accordionItems.forEach((item) => {
+  questionAccordionItems.forEach((item) => {
     item.addEventListener("click", () => {
       item.classList.toggle("active");
     });
