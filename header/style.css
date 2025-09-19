@@ -7,6 +7,10 @@
   font-family: "Golos-text", sans-serif;
 }
 
+.t-popup__container {
+  background-color: transparent;
+}
+
 ul,
 a {
   padding: 0;
