@@ -1,6 +1,5 @@
 <style>
   * {
-    list-style: none;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -9,12 +8,22 @@
     font-family: "Golos-text", sans-serif;
   }
 
+  .t-popup__container {
+    background-color: transparent;
+  }
+
+  #allrecords ul,
+  #allrecords ol {
+    padding-left: 0;
+  }
+
   ul,
   a {
     padding: 0;
   }
 
   .header {
+    list-style: none;
     padding: 16px 0;
     background-color: #fbfbfb;
     border-bottom: 1px solid #0000001a;
@@ -35,35 +44,36 @@
     gap: 20px;
   }
 
-  .logo {
+  .header-logo {
     position: relative;
     z-index: 101;
   }
 
-  .navigation-list {
+  .header-navigation-list {
     display: flex;
     align-items: center;
     gap: 16px;
   }
 
-  .navigation-item {
+  .header-navigation-item {
     border-radius: 7px;
     transition: 0.3s all;
     padding: 5px 10px;
     cursor: pointer;
+    list-style: none;
   }
 
-  .navigation-item:hover {
+  .header-navigation-item:hover {
     background-color: #f4f4f3;
   }
 
-  .navigation-link {
+  .header-navigation-link {
     display: flex;
     align-items: center;
     gap: 5px;
   }
 
-  .badge {
+  .header-badge {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -73,47 +83,47 @@
     background-color: white;
   }
 
-  .dote {
+  .header-dote {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background-color: #17b26a;
   }
 
-  .buttons {
+  .header-buttons {
     display: flex;
     align-items: center;
     gap: 8px;
     font-family: "Golos-text", sans-serif;
   }
 
-  .buttons > button {
+  .header-buttons > button {
     border: none;
     background-color: transparent;
   }
 
-  .buttons > button:first-child,
-  .buttons > button:last-child {
+  .header-buttons > button:first-child,
+  .header-buttons > button:last-child {
     padding: 5px 10px;
     border-radius: 7px;
     transition: 0.3s all;
     cursor: pointer;
   }
 
-  .buttons > button:first-child:hover {
+  .header-buttons > button:first-child:hover {
     background-color: #f4f4f3;
   }
 
-  .buttons > button:last-child {
+  .header-buttons > button:last-child {
     background-color: #0f1214;
     color: white;
   }
 
-  .burger {
+  .header-burger {
     display: none;
   }
 
-  .burger-button {
+  .header-burger-button {
     width: 20px;
     height: 20px;
     background-color: transparent;
@@ -123,9 +133,9 @@
     z-index: 101;
   }
 
-  .burger-button span,
-  .burger-button::after,
-  .burger-button::before {
+  .header-burger-button span,
+  .header-burger-button::after,
+  .header-burger-button::before {
     content: "";
     display: block;
     width: 20px;
@@ -135,15 +145,15 @@
     transition: 0.3s all;
   }
 
-  .burger-button::before {
+  .header-burger-button::before {
     transform: translateY(-4px);
   }
 
-  .burger-button::after {
+  .header-burger-button::after {
     transform: translateY(4px);
   }
 
-  .burger-menu {
+  .header-burger-menu {
     position: absolute;
     left: 0;
     top: 0;
@@ -161,18 +171,18 @@
     z-index: 100;
   }
 
-  .burger-navigation .title {
+  .header-burger-navigation .header-burger-title {
     margin-bottom: 16px;
   }
 
-  .burger-buttons {
+  .header-burger-buttons {
     display: flex;
     flex-direction: column;
     gap: 12px;
     width: 100%;
   }
 
-  .burger-buttons > button {
+  .header-burger-buttons > button {
     padding: 16px 10px;
     width: 100%;
     border-radius: 7px;
@@ -182,69 +192,70 @@
     border: none;
   }
 
-  .burger-buttons > button:first-child {
+  .header-burger-buttons > button:first-child {
     border: 1px solid #0f1214;
   }
 
-  .burger-buttons > button:last-child {
+  .header-burger-buttons > button:last-child {
     background-color: #0f1214;
     color: white;
   }
 
-  .burger-navigation-list {
+  .header-burger-navigation-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    list-style: none;
   }
 
-  .contacts {
+  .header-contacts {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: auto;
   }
 
-  .contact {
+  .header-contact {
     display: flex;
     flex-direction: column;
     gap: 12px;
     color: #767676;
   }
 
-  .title {
+  .header-contact-title {
     font-weight: bold;
     color: #0f1214;
   }
 
   @media (max-width: 1240px) {
-    .navigation {
+    .header-navigation {
       display: none;
     }
 
-    .buttons {
+    .header-buttons {
       display: none;
     }
 
-    .burger {
+    .header-burger {
       display: block;
     }
   }
 
   /* BURGER MENU STYLES */
 
-  .burger.active .burger-button span {
+  .header-burger.active .header-burger-button span {
     opacity: 0;
   }
 
-  .burger.active .burger-button::before {
+  .header-burger.active .header-burger-button::before {
     transform: rotate(45deg) translateY(3px);
   }
 
-  .burger.active .burger-button::after {
+  .header-burger.active .header-burger-button::after {
     transform: rotate(-45deg) translateY(-3px);
   }
 
-  .burger.active .burger-menu {
+  .header-burger.active .header-burger-menu {
     transform: translateX(0);
   }
 
@@ -264,15 +275,15 @@
       <img
         src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/result-logo-black.svg"
         alt=""
-        class="logo"
+        class="header-logo"
       />
-      <nav class="navigation">
-        <ul class="navigation-list">
-          <li class="navigation-item">
-            <a href="" class="navigation-link">Главная</a>
+      <nav class="header-navigation">
+        <ul class="header-navigation-list">
+          <li class="header-navigation-item">
+            <a href="" class="header-navigation-link">Главная</a>
           </li>
-          <li class="navigation-item">
-            <a href="" class="navigation-link"
+          <li class="header-navigation-item">
+            <a href="" class="header-navigation-link"
               >Обучение
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -290,23 +301,23 @@
               </svg>
             </a>
           </li>
-          <li class="navigation-item">
-            <a href="" class="navigation-link">
+          <li class="header-navigation-item">
+            <a href="" class="header-navigation-link">
               Диагностика
-              <span class="badge">
-                <span class="dote"></span>
+              <span class="header-badge">
+                <span class="header-dote"></span>
                 <span>New</span>
               </span>
             </a>
           </li>
-          <li class="navigation-item">
-            <a href="" class="navigation-link">О нас</a>
+          <li class="header-navigation-item">
+            <a href="" class="header-navigation-link">О нас</a>
           </li>
-          <li class="navigation-item">
-            <a href="" class="navigation-link">Отзывы</a>
+          <li class="header-navigation-item">
+            <a href="" class="header-navigation-link">Отзывы</a>
           </li>
-          <li class="navigation-item">
-            <a href="" class="navigation-link"
+          <li class="header-navigation-item">
+            <a href="" class="header-navigation-link"
               >Медиа
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -327,51 +338,51 @@
         </ul>
       </nav>
     </div>
-    <div class="buttons">
+    <div class="header-buttons">
       <button>Войти</button>
       <button>Начать бесплатно</button>
     </div>
 
-    <div class="burger">
-      <button class="burger-button">
+    <div class="header-burger">
+      <button class="header-burger-button">
         <span></span>
       </button>
 
-      <div class="burger-menu">
-        <nav class="burger-navigation">
-          <h3 class="title">Навигация</h3>
-          <ul class="burger-navigation-list">
-            <li class="burger-navigation-item">
-              <a href="">Главная</a>
+      <div class="header-burger-menu">
+        <nav class="header-burger-navigation">
+          <h3 class="header-burger-title">Навигация</h3>
+          <ul class="header-burger-navigation-list">
+            <li class="header-burger-navigation-item">
+              <a href="" class="header-burger-navigation-link">Главная</a>
             </li>
-            <li class="burger-navigation-item">
-              <a href="">Обучение</a>
+            <li class="header-burger-navigation-item">
+              <a href="" class="header-burger-navigation-link">Обучение</a>
             </li>
-            <li class="burger-navigation-item">
-              <a href="">Диагностика</a>
+            <li class="header-burger-navigation-item">
+              <a href="" class="header-burger-navigation-link">Диагностика</a>
             </li>
-            <li class="burger-navigation-item">
-              <a href="">О нас</a>
+            <li class="header-burger-navigation-item">
+              <a href="" class="header-burger-navigation-link">О нас</a>
             </li>
-            <li class="burger-navigation-item">
-              <a href="">Отзывы</a>
+            <li class="header-burger-navigation-item">
+              <a href="" class="header-burger-navigation-link">Отзывы</a>
             </li>
-            <li class="burger-navigation-item">
-              <a href="">Медиа</a>
+            <li class="header-burger-navigation-item">
+              <a href="" class="header-burger-navigation-link">Медиа</a>
             </li>
           </ul>
         </nav>
-        <div class="contacts">
-          <div class="contact">
-            <span class="title"> 8 (800) 700-22-51 </span>
+        <div class="header-contacts">
+          <div class="header-contact">
+            <span class="header-contact-title"> 8 (800) 700-22-51 </span>
             <span>Звонок по России бесплатный</span>
           </div>
-          <div class="contact">
-            <span class="title">WhatsApp / Telegram</span>
+          <div class="header-contact">
+            <span class="header-contact-title">WhatsApp / Telegram</span>
             <span>Общение через мессенджер</span>
           </div>
         </div>
-        <div class="burger-buttons">
+        <div class="header-burger-buttons">
           <button>Посмотреть программу</button>
           <button>Узнать цену</button>
         </div>
@@ -381,10 +392,10 @@
 </header>
 
 <script>
-  const burger = document.querySelector(".burger");
-  const burgerButton = document.querySelector(".burger-button");
+  const headerBurger = document.querySelector(".header-burger");
+  const headerBurgerButton = document.querySelector(".header-burger-button");
 
-  burgerButton.addEventListener("click", () => {
-    burger.classList.toggle("active");
+  headerBurgerButton.addEventListener("click", () => {
+    headerBurger.classList.toggle("active");
   });
 </script>

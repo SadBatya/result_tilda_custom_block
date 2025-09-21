@@ -1,0 +1,420 @@
+<style>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .program-container {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+    padding: 80px 0;
+    width: calc(100% - 50px);
+  }
+
+  .program-container-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .program-bg-lines {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .program-block-title {
+    font-size: 40px;
+    color: #0c0e12;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .program-accordion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: "Golos-text", sans-serif;
+  }
+
+  .program-icon-smile {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    z-index: -1;
+    transform: rotate(-15deg);
+    max-width: 616px;
+  }
+
+  .program-accordion-item {
+    background-color: #f6fbfe;
+    border: 1px solid #0a85d180;
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .program-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .program-title {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 133%;
+  }
+
+  .program-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    color: #94979c;
+    font-size: 32px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .program-accordion-item.active .program-icon {
+    color: white;
+    background-color: #0a85d1;
+  }
+
+  .program-icon::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 20px;
+    background-color: #94979c;
+    border-radius: 24px;
+    transition: 0.3s all;
+  }
+
+  .program-accordion-item.active .program-icon::after {
+    transform: rotate(90deg);
+  }
+
+  .program-icon::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #94979c;
+    border-radius: 24px;
+  }
+
+  .program-accordion-item.active .program-icon::before,
+  .program-accordion-item.active .program-icon::after {
+    background-color: white;
+  }
+
+  .program-accordion-item.active .program-icon::before {
+    content: "";
+  }
+
+  .program-accordion-content {
+    transition: 0.5s all ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: #717680;
+  }
+
+  .program-accordion-description {
+    margin-bottom: 16px;
+    margin-top: 16px;
+    color: #717680;
+  }
+
+  .program-accordion-item.active > .program-accordion-content {
+    max-height: 1200px;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .program-list-item {
+    list-style-position: inside;
+    padding: 8px 0;
+    color: #717680;
+  }
+
+  @media (max-width: 786px) {
+    .program-container {
+      padding: 40px 0;
+    }
+
+    .program-accordion {
+      gap: 12px;
+    }
+
+    .program-icon-smile {
+      top: 40%;
+      right: -10%;
+      max-width: 216px;
+    }
+
+    .program-block-title {
+      font-size: 36px;
+    }
+
+    .program-title {
+      font-size: 22px;
+    }
+
+    .program-accordion-item {
+      padding: 16px;
+    }
+
+    .program-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .program-icon::after {
+      width: 2px;
+      height: 12px;
+    }
+
+    .program-icon::before {
+      width: 12px;
+      height: 2px;
+    }
+  }
+</style>
+
+<div class="program-container">
+  <img
+    class="program-bg-lines"
+    src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
+    alt=""
+  />
+  <div class="program-container-inner">
+    <h4 class="program-block-title">Программа обучения</h4>
+    <div class="program-accordion">
+      <img
+        class="program-icon-smile"
+        src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/Group%2059431.svg"
+        alt=""
+      />
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Введение</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Узнаете, для чего нужен TypeScript, какие проблемы он решает и как
+            его добавить в проект.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Добро пожаловать в модуль TypeScript
+            </li>
+            <li class="program-list-item">
+              Демонстрация функционала TypeScript
+            </li>
+            <li class="program-list-item">Настройка VS Code</li>
+            <li class="program-list-item">Установка TypeScript</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Базовые типы</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь типизировать данные с примитивными типами, а также
+            объекты, массивы, кортежи, функции. Познакомитесь с типом Enum,
+            поймете разницу между void и undefined.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Работа с числами</li>
+            <li class="program-list-item">String, boolean, function</li>
+            <li class="program-list-item">Объекты</li>
+            <li class="program-list-item">Массивы</li>
+            <li class="program-list-item">Кортежи (Tuples)</li>
+            <li class="program-list-item">Enum</li>
+            <li class="program-list-item">Symbol & BigInt</li>
+            <li class="program-list-item">void vs undefined</li>
+            <li class="program-list-item">Типизация функций</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Работа с типами</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь использовать объединение, литеральные типы, интерфейсы, а
+            также «защитников типа». Познакомитесь с типом unknown и поймете его
+            отличие от any, узнаете о типе never.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Объединенные типы (Union Types)</li>
+            <li class="program-list-item">Literal Types</li>
+            <li class="program-list-item">Interfaces</li>
+            <li class="program-list-item">unknown</li>
+            <li class="program-list-item">never</li>
+            <li class="program-list-item">Type Guard</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Компилятор</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь управлять поведением компилятора TypeScript с помощью
+            конфигурационного файла tsconfig.json (например, выбор файлов для
+            компиляции, версия ECMAScript, в которую будет скомпилирован
+            TypeScript-код, система модулей, строгий режим и многое другое).
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Введение</li>
+            <li class="program-list-item">
+              Базовые настройки (files, include, exclude, extends)
+            </li>
+            <li class="program-list-item">Language and Environment</li>
+            <li class="program-list-item">modules</li>
+            <li class="program-list-item">jscheck</li>
+            <li class="program-list-item">emit</li>
+            <li class="program-list-item">strict</li>
+            ы
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Классы</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь типизировать классы (в том числе модификаторы доступа,
+            статические методы и свойства, геттеры / сеттеры, реализация классов
+            от интерфейсов, абстрактные классы).
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Синтаксис классов</li>
+            <li class="program-list-item">Методы</li>
+            <li class="program-list-item">Getters & Setters</li>
+            <li class="program-list-item">Наследование</li>
+            <li class="program-list-item">Модификаторы свойств</li>
+            <li class="program-list-item">Static & Readonly</li>
+            <li class="program-list-item">Упрощенный конструктор</li>
+            <li class="program-list-item">Implements</li>
+            <li class="program-list-item">Абстрактные классы</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Generic</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Познакомитесь с обобщенными типами в TypeScript, позволяющими писать
+            более гибкий и переиспользуемый код. Научитесь применять их с
+            функциями и классами.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Зачем нужны generic</li>
+            <li class="program-list-item">Функции с generic</li>
+            <li class="program-list-item">Более строгие generic</li>
+            <li class="program-list-item">Применение keyof</li>
+            <li class="program-list-item">Работа с классами</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Утилиты</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Узнаете о множестве полезных утилитарных типов, позволяющих упрощать
+            определения типов, создавать новые типы на основе существующих,
+            выполнять операции над типами.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">typeof & keyof</li>
+            <li class="program-list-item">Partial, Required, Readonly</li>
+            <li class="program-list-item">Pick & Omit</li>
+            <li class="program-list-item">Extract & Exclude</li>
+            <li class="program-list-item">ReturnType & Parametrs</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Декораторы</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Поймете основные принципы работы декораторов в TypeScript и
+            научитесь их использовать для классов, их методов и свойств.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Введение</li>
+            <li class="program-list-item">Классы</li>
+            <li class="program-list-item">Методы</li>
+            <li class="program-list-item">Свойства</li>
+            <li class="program-list-item">Параметры</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Еще про TypeScript</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь использовать пространства имен, использовать TypeScript со
+            сторонними библиотеками, добавлять TypeScript в Node.js-проект.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Что такое namespace</li>
+            <li class="program-list-item">Сторонние библиотеки</li>
+            <li class="program-list-item">Настройка NodeJS</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const programAccordionItems = document.querySelectorAll(
+    ".program-accordion-item"
+  );
+
+  programAccordionItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+</script>

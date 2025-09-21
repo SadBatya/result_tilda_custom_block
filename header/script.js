@@ -1,6 +1,6 @@
-const burger = document.querySelector(".burger");
-const burgerButton = document.querySelector(".burger-button");
+const headerBurger = document.querySelector(".header-burger");
+const headerBurgerButton = document.querySelector(".header-burger-button");
 
-burgerButton.addEventListener("click", () => {
-  burger.classList.toggle("active");
+headerBurgerButton.addEventListener("click", () => {
+  headerBurger.classList.toggle("active");
 });
