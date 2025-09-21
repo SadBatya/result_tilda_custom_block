@@ -1,0 +1,548 @@
+<style>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .program-container {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+    padding: 80px 0;
+    width: calc(100% - 50px);
+  }
+
+  .program-container-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .program-bg-lines {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .program-block-title {
+    font-size: 40px;
+    color: #0c0e12;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .program-accordion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: "Golos-text", sans-serif;
+  }
+
+  .program-icon-smile {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    z-index: -1;
+    transform: rotate(-15deg);
+    max-width: 616px;
+  }
+
+  .program-accordion-item {
+    background-color: #faf7ff;
+    border: 1px solid #7d2af3;
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .program-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .program-title {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 133%;
+    text-align: left;
+  }
+
+  .program-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    color: #94979c;
+    font-size: 32px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .program-accordion-item.active .program-icon {
+    color: white;
+    background-color: #7d2af3;
+  }
+
+  .program-icon::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 20px;
+    background-color: #94979c;
+    border-radius: 24px;
+    transition: 0.3s all;
+  }
+
+  .program-accordion-item.active .program-icon::after {
+    transform: rotate(90deg);
+  }
+
+  .program-icon::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #94979c;
+    border-radius: 24px;
+  }
+
+  .program-accordion-item.active .program-icon::before,
+  .program-accordion-item.active .program-icon::after {
+    background-color: white;
+  }
+
+  .program-accordion-item.active .program-icon::before {
+    content: "";
+  }
+
+  .program-accordion-content {
+    transition: 0.5s all ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: #717680;
+  }
+
+  .program-accordion-description {
+    margin-bottom: 16px;
+    margin-top: 16px;
+    color: #717680;
+  }
+
+  .program-accordion-item.active > .program-accordion-content {
+    max-height: 1200px;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .program-list-item {
+    list-style-position: inside;
+    padding: 8px 0;
+    color: #717680;
+  }
+
+  @media (max-width: 786px) {
+    .program-container {
+      padding: 40px 0;
+    }
+
+    .program-accordion {
+      gap: 12px;
+    }
+
+    .program-icon-smile {
+      top: 40%;
+      right: -10%;
+      max-width: 216px;
+    }
+
+    .program-block-title {
+      font-size: 36px;
+    }
+
+    .program-title {
+      font-size: 22px;
+    }
+
+    .program-accordion-item {
+      padding: 16px;
+    }
+
+    .program-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .program-icon::after {
+      width: 2px;
+      height: 12px;
+    }
+
+    .program-icon::before {
+      width: 12px;
+      height: 2px;
+    }
+  }
+</style>
+
+<div class="program-container">
+  <img
+    class="program-bg-lines"
+    src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
+    alt=""
+  />
+  <div class="program-container-inner">
+    <h4 class="program-block-title">Программа обучения</h4>
+    <div class="program-accordion">
+      <img
+        class="program-icon-smile"
+        src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/Group%2059431.svg"
+        alt=""
+      />
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Введение</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — узнать, что такое менеджеры состояния и какую проблему
+            они решают.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Вспомните, что такое состояние, и узнаете отличия локального
+              состояния от глобального.
+            </li>
+            <li class="program-list-item">
+              Поймете, что такое менеджеры состояний и с какими проблемами они
+              помогают справиться.
+            </li>
+            <li class="program-list-item">
+              Сравните два популярных инструмента для управления состоянием —
+              Redux и MobX.
+            </li>
+            <li class="program-list-item">
+              Узнаете, какие инструменты для управления состоянием используются
+              в других фреймворках.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title"
+            >Основы. Реализация собственного Redux</span
+          >
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — изучить ключевые концепции Redux в процессе его
+            реализации.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Разработаете собственный Redux.</li>
+            <li class="program-list-item">
+              Напишете собственный Redux. Actions.
+            </li>
+            <li class="program-list-item">
+              Напишете собственный Redux. Reducers + Store.
+            </li>
+            <li class="program-list-item">
+              Напишете собственный Redux. Интеграция с DOM.
+            </li>
+            <li class="program-list-item">
+              Замените собственный Redux готовым.
+            </li>
+            <li class="program-list-item">
+              Интегрируете Redux в приложение на чистом JavaScript.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title"
+            >Redux. Основы. Использование с React, часть 1</span
+          >
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — начать использовать Redux в React-приложениях.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Сравните использование Context API и Redux.
+            </li>
+            <li class="program-list-item">
+              Узнаете, зачем нужен React Redux, если есть обычный Redux.
+            </li>
+            <li class="program-list-item">
+              Поймете назначение хуков библиотеки React Redux.
+            </li>
+            <li class="program-list-item">
+              Интегрируете Redux в React-приложение.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title"
+            >Redux. Основы. Использование с React, часть 2</span
+          >
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — начать использовать Redux в React-приложениях.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Научитесь типизировать Redux при помощи TypeScript.
+            </li>
+            <li class="program-list-item">
+              Узнаете, что такое middleware, и научитесь писать их под Redux.
+            </li>
+            <li class="program-list-item">
+              Изучите Redux Thunk middleware для работы с асинхронной логикой.
+            </li>
+            <li class="program-list-item">
+              Научитесь сохранять store в постоянном хранилище с помощью Redux
+              Persist.
+            </li>
+            <li class="program-list-item">
+              Разберетесь, как отлаживать код с помощью Redux DevTools.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Redux Toolkit</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — научиться работать с Redux Toolkit для упрощения и
+            ускорения процесса разработки приложений с использованием Redux.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Познакомитесь с основами Redux Toolkit и его преимуществами.
+            </li>
+            <li class="program-list-item">
+              Научитесь настраивать хранилище с помощью функции
+              configureStore().
+            </li>
+            <li class="program-list-item">
+              Освоите создание слайсов с помощью createSlice() для управления
+              частями состояния.
+            </li>
+            <li class="program-list-item">
+              Разберетесь в создании асинхронных thunk-функций с использованием
+              createAsyncThunk().
+            </li>
+            <li class="program-list-item">
+              Научитесь использовать TypeScript вместе с Redux Toolkit.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">RTK Query</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — освоить RTK Query для упрощения работы с запросами к
+            API.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Создадите API-слайсы и выполните запросы на получение и отправку
+              данных.
+            </li>
+            <li class="program-list-item">
+              Избежите дублирования запросов за одними и теми же данными.
+            </li>
+            <li class="program-list-item">
+              Удалите чистый Redux Thunk из проекта.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Архитектурные подходы</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — научиться формировать структуру приложения с
+            использованием Redux.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Разберётесь, зачем нужна архитектура.
+            </li>
+            <li class="program-list-item">
+              Поймете принципы организации Redux-кода для более удобной
+              поддержки.
+            </li>
+            <li class="program-list-item">
+              Рассмотрите два популярных подхода к организации структуры
+              приложений с использованием Redux.
+            </li>
+            <li class="program-list-item">
+              Научитесь создавать независимые модули, обеспечивая более гибкую
+              разработку и масштабирование приложения.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Практика Redux</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — овладеть практическими навыками применения Redux в
+            реальных задачах.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Создадите приложение с использованием Redux Toolkit, реализующее
+              CRUD-операции.
+            </li>
+            <li class="program-list-item">
+              Реализуете вход в систему с использованием RTK Query.
+            </li>
+            <li class="program-list-item">
+              Рассмотрите лучшие практики и научитесь избегать антипаттерны при
+              работе с Redux.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Практика Redux</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — овладеть практическими навыками применения Redux в
+            реальных задачах.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Создадите приложение с использованием Redux Toolkit, реализующее
+              CRUD-операции.
+            </li>
+            <li class="program-list-item">
+              Реализуете вход в систему с использованием RTK Query.
+            </li>
+            <li class="program-list-item">
+              Рассмотрите лучшие практики и научитесь избегать антипаттерны при
+              работе с Redux.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Аналоги. MobX, часть 1</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — понять основные концепции MobX на примере приложения на
+            чистом JavaScript.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Познакомитесь с МobХ.</li>
+            <li class="program-list-item">
+              Подключите МobХ к корзине на js. Reactions.
+            </li>
+            <li class="program-list-item">Добавите действия (actions).</li>
+            <li class="program-list-item">
+              Мемоизируете подсчеты (computations).
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Аналоги. MobX, часть 2</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — научиться использовать MobX в React-приложениях.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Интегрируете MobX в React-приложение.
+            </li>
+            <li class="program-list-item">
+              Используете TypeScript в связке с MobX.
+            </li>
+            <li class="program-list-item">
+              Выполните асинхронные запросы с использованием Flow.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Аналоги. MobX, Практика</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Цель урока — овладеть практическими навыками применения MobX в
+            React-приложении.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Замените Redux на MobX в существующем приложении.
+            </li>
+            <li class="program-list-item">
+              На практике используете MobX для разработки.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const programAccordionItems = document.querySelectorAll(
+    ".program-accordion-item"
+  );
+
+  programAccordionItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+</script>
