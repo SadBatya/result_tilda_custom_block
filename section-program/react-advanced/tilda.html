@@ -1,0 +1,442 @@
+<style>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .program-container {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+    padding: 80px 0;
+    width: calc(100% - 50px);
+  }
+
+  .program-container-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .program-bg-lines {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .program-block-title {
+    font-size: 40px;
+    color: #0c0e12;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .program-accordion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: "Golos-text", sans-serif;
+  }
+
+  .program-icon-smile {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    z-index: -1;
+    transform: rotate(-15deg);
+    max-width: 616px;
+  }
+
+  .program-accordion-item {
+    background-color: #edfbff;
+    border: 1px solid #01aec9;
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .program-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .program-title {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 133%;
+    text-align: left;
+  }
+
+  .program-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    color: #94979c;
+    font-size: 32px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .program-accordion-item.active .program-icon {
+    color: white;
+    background-color: #01aec9;
+  }
+
+  .program-icon::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 20px;
+    background-color: #94979c;
+    border-radius: 24px;
+    transition: 0.3s all;
+  }
+
+  .program-accordion-item.active .program-icon::after {
+    transform: rotate(90deg);
+  }
+
+  .program-icon::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #94979c;
+    border-radius: 24px;
+  }
+
+  .program-accordion-item.active .program-icon::before,
+  .program-accordion-item.active .program-icon::after {
+    background-color: white;
+  }
+
+  .program-accordion-item.active .program-icon::before {
+    content: "";
+  }
+
+  .program-accordion-content {
+    transition: 0.5s all ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: #717680;
+  }
+
+  .program-accordion-description {
+    margin-bottom: 16px;
+    margin-top: 16px;
+    color: #717680;
+  }
+
+  .program-accordion-item.active > .program-accordion-content {
+    max-height: 1200px;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .program-list-item {
+    list-style-position: inside;
+    padding: 8px 0;
+    color: #717680;
+  }
+
+  @media (max-width: 786px) {
+    .program-container {
+      padding: 40px 0;
+    }
+
+    .program-accordion {
+      gap: 12px;
+    }
+
+    .program-icon-smile {
+      top: 40%;
+      right: -10%;
+      max-width: 216px;
+    }
+
+    .program-block-title {
+      font-size: 36px;
+    }
+
+    .program-title {
+      font-size: 22px;
+    }
+
+    .program-accordion-item {
+      padding: 16px;
+    }
+
+    .program-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .program-icon::after {
+      width: 2px;
+      height: 12px;
+    }
+
+    .program-icon::before {
+      width: 12px;
+      height: 2px;
+    }
+  }
+</style>
+
+<div class="program-container">
+  <img
+    class="program-bg-lines"
+    src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
+    alt=""
+  />
+  <div class="program-container-inner">
+    <h4 class="program-block-title">Программа обучения</h4>
+    <div class="program-accordion">
+      <img
+        class="program-icon-smile"
+        src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/Group%2059431.svg"
+        alt=""
+      />
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Жизненные циклы</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Поймете, что такое жизненные циклы компонентов React, научитесь их
+            использовать и закрепите основы React.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Коллекции и ключи</li>
+            <li class="program-list-item">Иммутабельные переменные</li>
+            <li class="program-list-item">Жизненный цикл компонента</li>
+            <li class="program-list-item">
+              Методы жизненного цикла классового компонента
+            </li>
+            <li class="program-list-item">
+              Жизненные фазы функционального компонента
+            </li>
+            <li class="program-list-item">Рендер функционального компонента</li>
+            <li class="program-list-item">Условный рендеринг</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Пользовательские хуки</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Получите представление о всех самых важных хуках React и поймете, в
+            каких задачах они могут быть полезны.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Введение в хуки</li>
+            <li class="program-list-item">useState()</li>
+            <li class="program-list-item">useReducer()</li>
+            <li class="program-list-item">useEffect()</li>
+            <li class="program-list-item">useLayoutEffect()</li>
+            <li class="program-list-item">useRef()</li>
+            <li class="program-list-item">useMemo()</li>
+            <li class="program-list-item">useCallback()</li>
+            <li class="program-list-item">useTransition()</li>
+            <li class="program-list-item">useDeferredValue()</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Формы</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь эффективно работать с формами и полями ввода в React,
+            контролировать состояние формы и обрабатывать введенные данные.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Работа с полями ввода. Начало</li>
+            <li class="program-list-item">Множественные поля ввода</li>
+            <li class="program-list-item">Контролируемые поля ввода</li>
+            <li class="program-list-item">
+              Лайфхак для неконтролируемых полей ввода
+            </li>
+            <li class="program-list-item">Работа с формой</li>
+            <li class="program-list-item">Сброс полей ввода в форме</li>
+            <li class="program-list-item">
+              focus и blur при работе с полями ввода
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">React Router v6</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь создавать маршрутизацию в приложении с помощью React
+            Router v6.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Введение в React Router</li>
+            <li class="program-list-item">Динамические сегменты</li>
+            <li class="program-list-item">Типы Router</li>
+            <li class="program-list-item">useParams()</li>
+            <li class="program-list-item">Специфичные пути и страница 404</li>
+            <li class="program-list-item">Вложенные страницы</li>
+            <li class="program-list-item">Outlet</li>
+            <li class="program-list-item">
+              Вложенный роутинг. Контекст Outlet
+            </li>
+            <li class="program-list-item">useRoutes()</li>
+            <li class="program-list-item">Link</li>
+            <li class="program-list-item">NavLink</li>
+            <li class="program-list-item">Navigate и useNavigate()</li>
+            <li class="program-list-item">useSearchParams()</li>
+            <li class="program-list-item">useLocation()</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Context API</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Познакомитесь с Context API. Узнаете, какие проблемы он решает, и
+            научитесь использовать его в работе.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Введение в Context API</li>
+            <li class="program-list-item">Provider и useContext()</li>
+            <li class="program-list-item">Передача событий в Контекст</li>
+            <li class="program-list-item">
+              Оптимизация использования Контекста
+            </li>
+            <li class="program-list-item">
+              Private Route с использованием Context API
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Оптимизация</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь увеличивать производительность приложений и улучшать
+            пользовательский опыт, используя различные техники оптимизации.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Динамический импорт</li>
+            <li class="program-list-item">lazy() и Suspense</li>
+            <li class="program-list-item">Lazy loading и useTransition()</li>
+            <li class="program-list-item">Создание динамических компонентов</li>
+            <li class="program-list-item">Error Boundary</li>
+            <li class="program-list-item">Infinity Scroll</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Архитектура приложения</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь создавать хорошо организованные и легко масштабируемые
+            React-приложения.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Сборщики</li>
+            <li class="program-list-item">Структура приложения</li>
+            <li class="program-list-item">Дизайн-системы</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">PWA</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Научитесь создавать PWA с возможностью работы в офлайн-режиме.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">Введение в PWA</li>
+            <li class="program-list-item">Подготовка проекта</li>
+            <li class="program-list-item">Аудит с Lighthouse</li>
+            <li class="program-list-item">Манифест</li>
+            <li class="program-list-item">Введение в сервис-воркеры</li>
+            <li class="program-list-item">Жизненный цикл сервис-воркера</li>
+            <li class="program-list-item">Регистрация сервис-воркера</li>
+            <li class="program-list-item">Событие Install</li>
+            <li class="program-list-item">Событие Activate</li>
+            <li class="program-list-item">Аудит. Оптимизация под Lighthouse</li>
+            <li class="program-list-item">Событие Fetch</li>
+            <li class="program-list-item">Кэширование статики</li>
+            <li class="program-list-item">Получение статичного кэша</li>
+            <li class="program-list-item">Версии кэша</li>
+            <li class="program-list-item">Динамический кэш</li>
+            <li class="program-list-item">Офлайн-режим. Рефакторинг</li>
+            <li class="program-list-item">Публикация приложения</li>
+          </ol>
+        </div>
+      </div>
+      <div class="program-accordion-item">
+        <button class="program-accordion-header">
+          <span class="program-title">Итоговый проект</span>
+          <span class="program-icon"></span>
+        </button>
+        <div class="program-accordion-content">
+          <p class="program-accordion-description">
+            Создадите упрощенную копию приложения «Заметки» из операционной
+            системы macOS с помощью React.
+          </p>
+          <ol class="program-list">
+            <li class="program-list-item">
+              Приложение должно быть создано с помощью Vite, webpack или Create
+              React App и написано на TypeScript с использованием React Router
+              v6.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const programAccordionItems = document.querySelectorAll(
+    ".program-accordion-item"
+  );
+
+  programAccordionItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+</script>
