@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="program-container">
+      <img
+        class="program-bg-lines"
+        src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
+        alt=""
+      />
+      <div class="program-container-inner">
+        <h4 class="program-block-title">Программа обучения</h4>
+        <div class="program-accordion">
+          <img
+            class="program-icon-smile"
+            src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/Group%2059431.svg"
+            alt=""
+          />
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">Основы локальной разработки</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">Древовидная структура Git</li>
+                <li class="program-list-item">
+                  Полный цикл коммита: изменения, add, status, commit
+                </li>
+                <li class="program-list-item">
+                  Как называть коммиты: conventional commits
+                </li>
+                <li class="program-list-item">
+                  Как не коммитить node_modules: .gitignore
+                </li>
+                <li class="program-list-item">
+                  Как спрятать изменения: git stash
+                </li>
+                <li class="program-list-item">
+                  Как отредактировать коммит: git commit --amend
+                </li>
+                <li class="program-list-item">
+                  Как перенести изменения из другого репозитория: git patch
+                </li>
+                <li class="program-list-item">Как работает git: nanka.git</li>
+                <li class="program-list-item">
+                  Графический интерфейс работы с Git и полезные расширения в
+                  VSCode
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">История</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">
+                  Переключаемся между коммитами: git checkout
+                </li>
+                <li class="program-list-item">
+                  Смотрим на изменения между коммитами: git diff
+                </li>
+                <li class="program-list-item">
+                  Редактируем старые коммиты: git rebase для коммитов
+                </li>
+                <li class="program-list-item">
+                  Восстанавливаем утерянные коммиты: git reflog
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">Ветвление</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">Зачем нужны ветки</li>
+                <li class="program-list-item">
+                  Работаем в 2 ветках: git branch vs git checkout
+                </li>
+                <li class="program-list-item">Объединяем ветки: git merge</li>
+                <li class="program-list-item">
+                  Обновляем ветку по мастеру: git rebase для веток
+                </li>
+                <li class="program-list-item">
+                  Берем только часть изменений из ветки: git cherry-pick
+                </li>
+                <li class="program-list-item">Удаленные репозитории</li>
+                <li class="program-list-item">
+                  Как устроена работа с удалённым репозиторием
+                </li>
+                <li class="program-list-item">
+                  Отправляем и получаем изменения: git push & git pull
+                </li>
+                <li class="program-list-item">
+                  Присоединяем несколько удаленных репозиториев: git remote
+                </li>
+                <li class="program-list-item">
+                  Получаем, но не применяем изменения: git fetch
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">GitHub vs GitLab</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">
+                  В чем разница и что лучше использовать
+                </li>
+                <li class="program-list-item">
+                  Как обычно работает авторизация: ssh-ключи
+                </li>
+                <li class="program-list-item">
+                  Создание репозитория и присоединение его к проекту
+                </li>
+                <li class="program-list-item">
+                  Что такое issues, как их создавать и как с ними работать
+                </li>
+                <li class="program-list-item">
+                  Создаем pull request, связываем его с issue
+                </li>
+                <li class="program-list-item">
+                  Что такое fork, когда он нужен и как с ним работать
+                </li>
+                <li class="program-list-item">
+                  GitHub Pages и GitLab Pages — бесплатный хостинг для вашего
+                  frontend-проекта
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">Релизы</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">
+                  Версионирование пакетов: semantic version
+                </li>
+                <li class="program-list-item">
+                  Теги — метка важного этапа в жизни проекта
+                </li>
+                <li class="program-list-item">
+                  Релизы: как создавать и управлять
+                </li>
+                <li class="program-list-item">
+                  Установка npm-пакетов из GitHub
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">Подходы к командной работе</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">Проблемы командной работы</li>
+                <li class="program-list-item">Gitflow</li>
+                <li class="program-list-item">
+                  Упрощенный Gitflow — GitHub Flow
+                </li>
+                <li class="program-list-item">
+                  Проходим по GitHub Flow на практике
+                </li>
+                <li class="program-list-item">
+                  Merge conflicts: как решать во время pull и rebase
+                </li>
+                <li class="program-list-item">
+                  Правила избегания merge conflict’ов во frontend-проектах
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="program-accordion-item">
+            <button class="program-accordion-header">
+              <span class="program-title">Вклад в opensource</span>
+              <span class="program-icon"></span>
+            </button>
+            <div class="program-accordion-content">
+              <ol class="program-list">
+                <li class="program-list-item">Как найти проект и задачу</li>
+                <li class="program-list-item">Открываем issue</li>
+                <li class="program-list-item">
+                  Создаём fork и вносим изменения
+                </li>
+                <li class="program-list-item">Commit, push, pr</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

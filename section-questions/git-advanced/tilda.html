@@ -1,0 +1,300 @@
+<style>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .question-container {
+    position: relative;
+    max-width: 1920px;
+    width: calc(100% - 50px);
+    height: 100%;
+    margin: 0 auto;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+    padding: 80px 0;
+  }
+
+  .question-bg-lines {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .question-container-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .question-block-title {
+    font-size: 40px;
+    color: #0c0e12;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .question-accordion {
+    width: 100%;
+    font-family: "Golos-text", sans-serif;
+  }
+
+  .question-accordion-item {
+    padding: 24px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .question-accordion-item:first-child {
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .question-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .question-title {
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    line-height: 133%;
+    text-align: left;
+  }
+
+  .question-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 32px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .question-icon::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 20px;
+    background-color: black;
+    border-radius: 24px;
+    transition: 0.3s all;
+  }
+
+  .question-accordion-item.active .question-icon::after {
+    transform: rotate(90deg);
+  }
+
+  .question-icon::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    border-radius: 24px;
+  }
+
+  .question-accordion-item.active .question-icon::before {
+    content: "";
+  }
+
+  .question-accordion-content {
+    transition: 0.5s all ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: #717680;
+  }
+
+  .question-accordion-description {
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .question-accordion-item.active > .question-accordion-content {
+    max-height: 1200px;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  @media (max-width: 786px) {
+    .question-container {
+      padding: 40px 0;
+    }
+
+    .question-accordion {
+      gap: 12px;
+    }
+
+    .question-block-title {
+      font-size: 26px;
+    }
+
+    .question-accordion-item {
+      padding: 16px;
+    }
+
+    .question-title {
+      font-size: 16px;
+    }
+
+    .question-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .question-icon::after {
+      width: 2px;
+      height: 12px;
+    }
+
+    .question-icon::before {
+      width: 12px;
+      height: 2px;
+    }
+  }
+</style>
+
+<div class="question-container">
+  <img
+    class="question-bg-lines"
+    src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
+    alt=""
+  />
+  <div class="question-container-inner">
+    <h4 class="question-block-title">Вопросы & Ответы</h4>
+    <div class="question-accordion">
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title">Что нужно знать для старта?</span>
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Git используется в большинстве IT-профессий, поэтому для обучения на
+            курсе вам можно знать любой язык программирования на базовом уровне.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title">Сколько длиться курс?</span>
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Курс рассчитан на 14 дней. За это время вы проходите все необходимые
+            для middle-разработчика темы в Git и отрабатываете на практике
+            полученные знания. Доступ к курсу — 12 месяцев, поэтому проходить
+            его вы можете в своем темпе.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title"
+            >Сколько времени нужно будет уделять учебе?</span
+          >
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Разным людям необходимо разное количество времени. На курсе «Git
+            Advanced» у вас будет уходить не более часа в день на просмотр
+            уроков и выполнение заданий. Если окажется, что вам нужно больше
+            времени, это не значит, что у вас не получится. Это значит ровно то,
+            что нужно заниматься чуть больше, чтобы освоить материал.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title"
+            >На какое время доступен курс и чат?</span
+          >
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Доступ к курсу и поддержка наставника в чате — год.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title">Получу ли я сертификат?</span>
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Каждый выпускник курса «Git Advanced» получает сертификат от Result.
+            Вы сможете прикрепить его в свое резюме и показывать работодателям.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title"
+            >Могу ли я оплатить бонусными монетами?</span
+          >
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Да, вы можете оплатить бонусными монетами не более 20 % стоимости
+            курса.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title"
+            >Что такое монеты и как их заработать?</span
+          >
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Монеты — это внутренняя валюта Result. Вы можете их получить,
+            выполняя домашние задания и приглашая друзей. Монеты нужны, чтобы вы
+            могли частично оплатить другие образовательные проекты в Result.
+          </p>
+        </div>
+      </div>
+      <div class="question-accordion-item">
+        <button class="question-accordion-header">
+          <span class="question-title">Можно ли вернуть деньги за курс?</span>
+          <span class="question-icon"></span>
+        </button>
+        <div class="question-accordion-content">
+          <p class="question-accordion-description">
+            Вернем деньги, если вы поймете, что курс вам не подходит в течение
+            первых трех дней.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const questionAccordionItems = document.querySelectorAll(
+    ".question-accordion-item"
+  );
+
+  questionAccordionItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+</script>

@@ -11,6 +11,11 @@
   background-color: transparent;
 }
 
+#allrecords ul,
+#allrecords ol {
+  padding-left: 0;
+}
+
 ul,
 a {
   padding: 0;
@@ -199,6 +204,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  list-style: none;
 }
 
 .header-contacts {
