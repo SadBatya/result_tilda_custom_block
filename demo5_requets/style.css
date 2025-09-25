@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1400px;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 80px 0;
+  position: relative;
+  gap: 40px;
+}
+
+.bg-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.right-fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.left-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 700px;
+  flex: 1;
+}
+
+.badge {
+  background-color: #ffbf1e26;
+  padding: 4px 12px;
+  border-radius: 24px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  width: fit-content;
+  font-size: 14px;
+}
+
+.title {
+  color: #0f1214;
+  font-size: 48px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+
+.color-text {
+  color: #ffda00;
+}
+
+.description {
+  color: #414651;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+.start-day {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+
+.list {
+  background-color: #ffbf1e26;
+  padding: 40px;
+  border-radius: 16px;
+}
+
+.list-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: "Inter", sans-serif;
+  line-height: 145%;
+}
+
+.list-icon {
+  flex-shrink: 0;
+}
+
+.form {
+  flex: 1;
+  max-width: 627px;
+  width: 100%;
+  position: relative;
+  border: 1px solid #e6e9ec;
+  border-radius: 10px;
+  background-color: white;
+  height: 100%;
+  overflow: visible;
+}
+
+.form-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.form-icon-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+@media (max-width: 1440px) {
+  .right-fill {
+    display: none;
+  }
+
+  .left-fill {
+    display: none;
+  }
+}
+
+@media (max-width: 1240px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .form-icon {
+    display: none;
+  }
+
+  .form-icon-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .list {
+    padding: 24px;
+    gap: 24px;
+  }
+}
