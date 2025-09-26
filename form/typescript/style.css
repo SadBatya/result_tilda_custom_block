@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+#allrecords a {
+  color: inherit;
+}
+
 #container {
   background-color: rgb(0, 0, 0);
   width: 100vw;
@@ -14,10 +18,10 @@
 }
 
 .form-container {
+  margin: 0 auto;
   max-width: 520px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   background-color: white;
   border-radius: 10px;
   padding: 24px;
@@ -29,6 +33,7 @@
   font-weight: 900;
   font-size: 28px;
   font-family: "Inter", sans-serif;
+  margin-bottom: 16px;
 }
 
 .form-description {
@@ -40,9 +45,8 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  height: 340px;
+  margin-bottom: 24px;
 }
 
 .input {
@@ -65,21 +69,32 @@
   color: white;
 }
 
-.description {
+.form-subdescription {
   text-align: center;
-  font-size: 12px;
-  color: #acacac;
+  font-size: 14px;
+  color: #8a8a8a;
   font-family: "Golos-text", sans-serif;
+  margin-bottom: 16px;
 }
 
-.description-link {
+.form-subdescription-link {
   text-decoration: none;
   transition: 0.3s all;
-  color: #acacac;
+  color: #8a8a8a;
 }
 
-.description-link:hover {
-  color: #0a85d1;
+.form-subdescription-link:hover {
+  color: #0a85d1 !important;
+}
+
+.form-lisence {
+  color: #23bb29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Golos-text", sans-serif;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
