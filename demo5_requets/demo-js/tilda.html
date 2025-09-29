@@ -1,0 +1,568 @@
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #allrecords a {
+    color: inherit;
+  }
+
+  input {
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1400px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 80px 0;
+    position: relative;
+    gap: 40px;
+  }
+
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .right-fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .left-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 700px;
+    flex: 1;
+  }
+
+  .badge {
+    background-color: #ffbf1e26;
+    padding: 4px 12px;
+    border-radius: 24px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    width: fit-content;
+    font-size: 14px;
+  }
+
+  .title {
+    color: #0f1214;
+    font-size: 48px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+  }
+
+  .color-text {
+    color: #ffda00;
+  }
+
+  .description {
+    color: #414651;
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+  }
+
+  .start-day {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+  }
+
+  .list {
+    background-color: #ffbf1e26;
+    padding: 40px;
+    border-radius: 16px;
+  }
+
+  .list-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: "Inter", sans-serif;
+    line-height: 145%;
+  }
+
+  .list-icon {
+    flex-shrink: 0;
+  }
+
+  .form {
+    flex: 1;
+    max-width: 627px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #e6e9ec;
+    border-radius: 10px;
+    background-color: white;
+    height: 100%;
+    overflow: visible;
+    padding: 80px 32px 32px 32px;
+  }
+
+  .form-inner {
+    height: 320px;
+  }
+
+  .form-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  .form-title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 28px;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 16px;
+  }
+
+  .form-description {
+    text-align: center;
+    font-size: 16px;
+    color: #0f1214;
+    margin-bottom: 24px;
+    font-family: "Inter", sans-serif;
+  }
+
+  .form-subdescription {
+    text-align: center;
+    font-size: 14px;
+    color: #8a8a8a;
+    font-family: "Golos-text", sans-serif;
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+
+  .form-subdescription-link {
+    text-decoration: none;
+    transition: 0.3s all;
+    color: #8a8a8a;
+  }
+
+  .form-subdescription-link:hover {
+    color: #0a85d1 !important;
+  }
+
+  .form-lisence {
+    color: #23bb29;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Golos-text", sans-serif;
+    font-size: 14px;
+  }
+
+  .form-icon-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+
+  @media (max-width: 1440px) {
+    .right-fill {
+      display: none;
+    }
+
+    .left-fill {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1240px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .form-icon {
+      display: none;
+    }
+
+    .form-icon-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 32px;
+    }
+
+    .description {
+      font-size: 16px;
+    }
+
+    .list {
+      padding: 24px;
+      gap: 24px;
+    }
+  }
+</style>
+
+<div>
+  <img
+    src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/js-fill-right.svg"
+    class="right-fill"
+    alt=""
+  />
+  <img
+    src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/js-fill-left.svg"
+    alt=""
+    class="left-fill"
+  />
+  <div class="container">
+    <img
+      class="bg-lines"
+      src="https://s3.twcstorage.ru/a6037344-d38cc239-8007-4ed3-ab52-0b2a14f8ea76/tilda/bg-lines.svg"
+      alt=""
+    />
+    <div class="content">
+      <span class="badge">Бесплатный доступ на 5 дней</span>
+      <h1 class="title">
+        Изучите
+        <span class="color-text"> JavaScript </span>
+        за 5 дней — бесплатно и с ментором
+      </h1>
+      <p class="description">
+        Освойте ключевые навыки JavaScript за 5 дней. От переменных до сборки
+        проекта — всё на практике и с поддержкой ментора.
+      </p>
+      <p class="start-day">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M16.7502 3.56V2C16.7502 1.59 16.4102 1.25 16.0002 1.25C15.5902 1.25 15.2502 1.59 15.2502 2V3.5H8.75023V2C8.75023 1.59 8.41023 1.25 8.00023 1.25C7.59023 1.25 7.25023 1.59 7.25023 2V3.56C4.55023 3.81 3.24023 5.42 3.04023 7.81C3.02023 8.1 3.26023 8.34 3.54023 8.34H20.4602C20.7502 8.34 20.9902 8.09 20.9602 7.81C20.7602 5.42 19.4502 3.81 16.7502 3.56Z"
+            fill="#2C2F31"
+          />
+          <path
+            d="M20 9.83984H4C3.45 9.83984 3 10.2898 3 10.8398V16.9998C3 19.9998 4.5 21.9998 8 21.9998H16C19.5 21.9998 21 19.9998 21 16.9998V10.8398C21 10.2898 20.55 9.83984 20 9.83984ZM9.21 18.2098C9.16 18.2498 9.11 18.2998 9.06 18.3298C9 18.3698 8.94 18.3998 8.88 18.4198C8.82 18.4498 8.76 18.4698 8.7 18.4798C8.63 18.4898 8.57 18.4998 8.5 18.4998C8.37 18.4998 8.24 18.4698 8.12 18.4198C7.99 18.3698 7.89 18.2998 7.79 18.2098C7.61 18.0198 7.5 17.7598 7.5 17.4998C7.5 17.2398 7.61 16.9798 7.79 16.7898C7.89 16.6998 7.99 16.6298 8.12 16.5798C8.3 16.4998 8.5 16.4798 8.7 16.5198C8.76 16.5298 8.82 16.5498 8.88 16.5798C8.94 16.5998 9 16.6298 9.06 16.6698C9.11 16.7098 9.16 16.7498 9.21 16.7898C9.39 16.9798 9.5 17.2398 9.5 17.4998C9.5 17.7598 9.39 18.0198 9.21 18.2098ZM9.21 14.7098C9.02 14.8898 8.76 14.9998 8.5 14.9998C8.24 14.9998 7.98 14.8898 7.79 14.7098C7.61 14.5198 7.5 14.2598 7.5 13.9998C7.5 13.7398 7.61 13.4798 7.79 13.2898C8.07 13.0098 8.51 12.9198 8.88 13.0798C9.01 13.1298 9.12 13.1998 9.21 13.2898C9.39 13.4798 9.5 13.7398 9.5 13.9998C9.5 14.2598 9.39 14.5198 9.21 14.7098ZM12.71 18.2098C12.52 18.3898 12.26 18.4998 12 18.4998C11.74 18.4998 11.48 18.3898 11.29 18.2098C11.11 18.0198 11 17.7598 11 17.4998C11 17.2398 11.11 16.9798 11.29 16.7898C11.66 16.4198 12.34 16.4198 12.71 16.7898C12.89 16.9798 13 17.2398 13 17.4998C13 17.7598 12.89 18.0198 12.71 18.2098ZM12.71 14.7098C12.66 14.7498 12.61 14.7898 12.56 14.8298C12.5 14.8698 12.44 14.8998 12.38 14.9198C12.32 14.9498 12.26 14.9698 12.2 14.9798C12.13 14.9898 12.07 14.9998 12 14.9998C11.74 14.9998 11.48 14.8898 11.29 14.7098C11.11 14.5198 11 14.2598 11 13.9998C11 13.7398 11.11 13.4798 11.29 13.2898C11.38 13.1998 11.49 13.1298 11.62 13.0798C11.99 12.9198 12.43 13.0098 12.71 13.2898C12.89 13.4798 13 13.7398 13 13.9998C13 14.2598 12.89 14.5198 12.71 14.7098ZM16.21 18.2098C16.02 18.3898 15.76 18.4998 15.5 18.4998C15.24 18.4998 14.98 18.3898 14.79 18.2098C14.61 18.0198 14.5 17.7598 14.5 17.4998C14.5 17.2398 14.61 16.9798 14.79 16.7898C15.16 16.4198 15.84 16.4198 16.21 16.7898C16.39 16.9798 16.5 17.2398 16.5 17.4998C16.5 17.7598 16.39 18.0198 16.21 18.2098ZM16.21 14.7098C16.16 14.7498 16.11 14.7898 16.06 14.8298C16 14.8698 15.94 14.8998 15.88 14.9198C15.82 14.9498 15.76 14.9698 15.7 14.9798C15.63 14.9898 15.56 14.9998 15.5 14.9998C15.24 14.9998 14.98 14.8898 14.79 14.7098C14.61 14.5198 14.5 14.2598 14.5 13.9998C14.5 13.7398 14.61 13.4798 14.79 13.2898C14.89 13.1998 14.99 13.1298 15.12 13.0798C15.3 12.9998 15.5 12.9798 15.7 13.0198C15.76 13.0298 15.82 13.0498 15.88 13.0798C15.94 13.0998 16 13.1298 16.06 13.1698C16.11 13.2098 16.16 13.2498 16.21 13.2898C16.39 13.4798 16.5 13.7398 16.5 13.9998C16.5 14.2598 16.39 14.5198 16.21 14.7098Z"
+            fill="#2C2F31"
+          />
+        </svg>
+        Старт обучения - сегодня
+      </p>
+      <div class="list">
+        <ul class="list-inner">
+          <li class="list-item">
+            <svg
+              class="list-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z"
+                fill="#0F1214"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M19.9476 8.62096L11.5943 16.6826L9.37763 14.3143C8.9693 13.9293 8.32763 13.906 7.86096 14.2326C7.40596 14.571 7.27763 15.166 7.55763 15.6443L10.1826 19.9143C10.4393 20.311 10.8826 20.556 11.3843 20.556C11.8626 20.556 12.3176 20.311 12.5743 19.9143C12.9943 19.366 21.0093 9.81096 21.0093 9.81096C22.0593 8.73762 20.7876 7.79262 19.9476 8.60929V8.62096Z"
+                fill="white"
+              />
+            </svg>
+            JavaScript — там, где оживают сайты. Научитесь добавлять
+            интерактивность, обрабатывать данные и писать чистый код на
+            практике.
+          </li>
+          <li class="list-item">
+            <svg
+              class="list-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z"
+                fill="#0F1214"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M19.9476 8.62096L11.5943 16.6826L9.37763 14.3143C8.9693 13.9293 8.32763 13.906 7.86096 14.2326C7.40596 14.571 7.27763 15.166 7.55763 15.6443L10.1826 19.9143C10.4393 20.311 10.8826 20.556 11.3843 20.556C11.8626 20.556 12.3176 20.311 12.5743 19.9143C12.9943 19.366 21.0093 9.81096 21.0093 9.81096C22.0593 8.73762 20.7876 7.79262 19.9476 8.60929V8.62096Z"
+                fill="white"
+              />
+            </svg>
+            С нуля до первых скриптов: освойте JavaScript, оживите вёрстку и
+            сделайте сайт по-настоящему динамическим
+          </li>
+          <li class="list-item">
+            <svg
+              class="list-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z"
+                fill="#0F1214"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M19.9476 8.62096L11.5943 16.6826L9.37763 14.3143C8.9693 13.9293 8.32763 13.906 7.86096 14.2326C7.40596 14.571 7.27763 15.166 7.55763 15.6443L10.1826 19.9143C10.4393 20.311 10.8826 20.556 11.3843 20.556C11.8626 20.556 12.3176 20.311 12.5743 19.9143C12.9943 19.366 21.0093 9.81096 21.0093 9.81096C22.0593 8.73762 20.7876 7.79262 19.9476 8.60929V8.62096Z"
+                fill="white"
+              />
+            </svg>
+            Не просто теория — пишите код, который работает. Изучайте JavaScript
+            через создание реальных элементов: слайдеров, форм и анимаций
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="form">
+      <svg
+        class="form-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="168"
+        height="171"
+        viewBox="0 0 168 171"
+        fill="none"
+      >
+        <g filter="url(#filter0_d_10209_27270)">
+          <g clip-path="url(#clip0_10209_27270)">
+            <path
+              d="M122.555 10.8736L3.32812 42.8203L36.3515 166.065L155.578 134.118L122.555 10.8736Z"
+              fill="#FFDA00"
+              fill-opacity="0.2"
+            />
+            <path
+              d="M123.043 13.9994L11.3047 43.9395L41.2447 155.677L152.983 125.737L123.043 13.9994Z"
+              fill="#FFDA00"
+              fill-opacity="0.2"
+            />
+            <path
+              d="M123.042 14.0003L19.8945 41.6387L47.5329 144.786L150.681 117.148L123.042 14.0003Z"
+              fill="white"
+            />
+            <path
+              d="M110.774 103.656C113.761 106.492 117.132 108.261 121.913 106.98C125.929 105.904 127.957 103.209 127.214 100.436C126.323 97.1119 123.372 96.641 118.433 95.8919L115.731 95.5015C107.939 94.3959 102.292 91.9079 100.177 84.0163C98.2294 76.7468 102.285 69.7288 110.942 67.4093C117.104 65.758 122.11 66.7157 126.807 71.4761L120.558 78.3448C118.097 75.8103 115.99 75.1167 113.207 75.8625C110.368 76.6232 109.051 78.9064 109.681 81.2591C110.461 84.1669 112.577 84.8615 117.218 85.5482L119.919 85.937C129.101 87.2619 134.716 89.6163 136.885 97.7109C139.223 106.438 133.649 113.055 124.442 115.522C115.441 117.934 108.476 115.203 104.124 110.343L110.774 103.656ZM76.7593 113.671C79.0058 115.964 81.0029 117.877 84.3331 116.985C87.5176 116.131 89.1927 114.347 87.8945 109.502L79.0634 76.5442L88.756 73.9471L97.6223 107.036C100.312 117.073 95.6512 123.217 87.0621 125.519C79.3014 127.598 73.731 124.786 70.1492 120.561L76.7593 113.671Z"
+              fill="black"
+            />
+          </g>
+        </g>
+        <defs>
+          <filter
+            id="filter0_d_10209_27270"
+            x="0"
+            y="0"
+            width="168.117"
+            height="170.406"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dx="7" dy="-9" />
+            <feGaussianBlur stdDeviation="2.5" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_10209_27270"
+            />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="effect1_dropShadow_10209_27270"
+              result="shape"
+            />
+          </filter>
+          <clipPath id="clip0_10209_27270">
+            <rect
+              y="46.9688"
+              width="127.382"
+              height="127.793"
+              rx="5"
+              transform="rotate(-15 0 46.9688)"
+              fill="white"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+      <svg
+        class="form-icon-mobile"
+        xmlns="http://www.w3.org/2000/svg"
+        width="88"
+        height="90"
+        viewBox="0 0 88 90"
+        fill="none"
+      >
+        <g filter="url(#filter0_d_10209_28161)">
+          <g clip-path="url(#clip0_10209_28161)">
+            <path
+              d="M75.2252 12.5391L2.92578 12.5391L2.92578 87.275H75.2252V12.5391Z"
+              fill="#FFDA00"
+              fill-opacity="0.2"
+            />
+            <path
+              d="M75.0276 14.3809L7.26953 14.3809L7.26953 82.1389H75.0276V14.3809Z"
+              fill="#FFDA00"
+              fill-opacity="0.2"
+            />
+            <path
+              d="M75.0256 14.3809L12.4766 14.3809L12.4766 76.9299H75.0256V14.3809Z"
+              fill="#FFDA00"
+            />
+            <path
+              d="M54.4931 63.248C55.753 65.3051 57.3922 66.8172 60.2913 66.8172C62.7268 66.8172 64.2826 65.6 64.2826 63.9181C64.2826 61.9027 62.6841 61.1888 60.0034 60.0163L58.534 59.3858C54.2926 57.5788 51.4749 55.3151 51.4749 50.5296C51.4749 46.1214 54.8337 42.7656 60.0828 42.7656C63.8199 42.7656 66.5065 44.0662 68.4426 47.4717L63.8656 50.4105C62.8578 48.6035 61.7707 47.8917 60.0828 47.8917C58.3612 47.8917 57.2701 48.9838 57.2701 50.4105C57.2701 52.1738 58.3622 52.8876 60.8841 53.9798L62.3535 54.6092C67.3475 56.7508 70.1671 58.9341 70.1671 63.8427C70.1671 69.1345 66.0101 72.0336 60.4273 72.0336C54.9687 72.0336 51.4421 69.4324 49.7166 66.023L54.4931 63.248ZM33.7298 63.7573C34.6532 65.3955 35.4931 66.7805 37.5125 66.7805C39.4436 66.7805 40.6618 66.0249 40.6618 63.0871V43.1012H46.5395V63.1665C46.5395 69.2527 42.9712 72.0227 37.7627 72.0227C33.0567 72.0227 30.3313 69.5873 28.9453 66.6539L33.7298 63.7573Z"
+              fill="black"
+            />
+          </g>
+        </g>
+        <defs>
+          <filter
+            id="filter0_d_10209_28161"
+            x="0.414062"
+            y="0.380859"
+            width="86.6133"
+            height="88.8535"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix
+              in="SourceAlpha"
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha"
+            />
+            <feOffset dx="7" dy="-9" />
+            <feGaussianBlur stdDeviation="2.5" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"
+            />
+            <feBlend
+              mode="normal"
+              in2="BackgroundImageFix"
+              result="effect1_dropShadow_10209_28161"
+            />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="effect1_dropShadow_10209_28161"
+              result="shape"
+            />
+          </filter>
+          <clipPath id="clip0_10209_28161">
+            <rect
+              x="0.414062"
+              y="14.3809"
+              width="74.6128"
+              height="74.8532"
+              rx="5"
+              fill="white"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+      <h2 class="form-title">Записаться на обучение</h2>
+      <p class="form-description">
+        Заполните данные, и мы откроем вам доступ к обучению.
+      </p>
+      <div class="form-inner">
+        <script
+          id="348447dc9d61af02cbe1b0ebb79b47fb63af4bee"
+          src="https://lk.result-university.com/pl/lite/widget/script?id=1489126"
+        ></script>
+      </div>
+      <p class="form-subdescription">
+        Нажимая на кнопку, я
+        <a
+          class="form-subdescription-link"
+          target="_blank"
+          href="https://lk.result-university.com/agree-policy"
+          >соглашаюсь на обработку персональных данных
+        </a>
+        и с
+        <a
+          class="form-subdescription-link"
+          target="_blank"
+          href="https://lk.result-university.com/terms"
+        >
+          правилами пользования Платформой
+        </a>
+      </p>
+      <div class="form-lisence">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.00012 13.1038C6.00012 11.3049 7.45839 9.84662 9.25726 9.84662H14.743C16.5418 9.84662 18.0001 11.3049 18.0001 13.1038V15.8466C18.0001 17.6455 16.5418 19.1038 14.743 19.1038H9.25726C7.45839 19.1038 6.00012 17.6455 6.00012 15.8466V13.1038ZM12.7501 14.0679C12.7501 13.6537 12.4143 13.3179 12.0001 13.3179C11.5859 13.3179 11.2501 13.6537 11.2501 14.0679V15.7822C11.2501 16.1964 11.5859 16.5322 12.0001 16.5322C12.4143 16.5322 12.7501 16.1964 12.7501 15.7822V14.0679Z"
+            fill="#4BCF51"
+            fill-opacity="0.9"
+          />
+          <path
+            d="M15.0001 10V8C15.0001 6.34315 13.657 5 12.0001 5V5C10.3433 5 9.00012 6.34315 9.00012 8L9.00012 10"
+            stroke="#4BCF51"
+            stroke-opacity="0.9"
+          />
+        </svg>
+        Ваши данные защищены
+      </div>
+    </div>
+  </div>
+</div>
